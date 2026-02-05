@@ -59,21 +59,21 @@
     <main class="main-content">
         <header class="page-header">
             <h1>Guida a SmartCoreAI</h1>
-            <p class="lead">SmartCoreAI e una libreria ufficiale Embarcadero per Delphi che fornisce un'interfaccia unificata per integrare diversi provider di intelligenza artificiale nelle applicazioni Delphi. Supporta VCL e FireMonkey su Windows, macOS, Linux, iOS e Android.</p>
+            <p class="lead">SmartCoreAI è una libreria ufficiale Embarcadero per Delphi che fornisce un'interfaccia unificata per integrare diversi provider di intelligenza artificiale nelle applicazioni Delphi. Supporta VCL e FireMonkey su Windows, macOS, Linux, iOS e Android.</p>
         </header>
 
         <article class="content">
             <!-- Concetto di Driver -->
             <section id="concetto-di-driver">
                 <h2>Concetto di Driver</h2>
-                <p>Il <strong>driver</strong> e il componente centrale che implementa la comunicazione con uno specifico provider AI. Ogni driver implementa l'interfaccia <code>IAIDriver</code> e gestisce:</p>
+                <p>Il <strong>driver</strong> è il componente centrale che implementa la comunicazione con uno specifico provider AI. Ogni driver implementa l'interfaccia <code>IAIDriver</code> e gestisce:</p>
                 <ul>
                     <li>Autenticazione e configurazione specifica del provider</li>
                     <li>Serializzazione delle richieste nel formato atteso dall'API</li>
                     <li>Parsing delle risposte e normalizzazione degli errori</li>
                     <li>Gestione del threading e sincronizzazione degli eventi</li>
                 </ul>
-                <p>I driver sono intercambiabili: e possibile passare da OpenAI a Gemini semplicemente cambiando il driver associato alla connessione, mantenendo lo stesso codice applicativo.</p>
+                <p>I driver sono intercambiabili: è possibile passare da OpenAI a Gemini semplicemente cambiando il driver associato alla connessione, mantenendo lo stesso codice applicativo.</p>
 
                 <h3 id="architettura">Architettura Connection-Driver-Request</h3>
                 <pre><code>TAIConnection (connessione)
@@ -93,7 +93,7 @@
                 <div class="table-wrapper">
                     <table>
                         <thead>
-                            <tr><th>Funzionalita</th><th>Supportata</th></tr>
+                            <tr><th>Funzionalità</th><th>Supportata</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Chat/Conversazione</td><td class="supported">Si</td></tr>
@@ -112,7 +112,7 @@
                     <li><code>APIKey</code> - Chiave API OpenAI (obbligatoria)</li>
                     <li><code>Model</code> - Modello da utilizzare (es. <code>gpt-4.1</code>, <code>gpt-5</code>)</li>
                     <li><code>MaxToken</code> - Numero massimo di token nella risposta</li>
-                    <li><code>Temperature</code> - Controllo creativita (0.0 - 2.0)</li>
+                    <li><code>Temperature</code> - Controllo creatività (0.0 - 2.0)</li>
                     <li><code>Stream</code> - Abilita risposte in streaming</li>
                 </ul>
 
@@ -121,7 +121,7 @@
                 <div class="table-wrapper">
                     <table>
                         <thead>
-                            <tr><th>Funzionalita</th><th>Supportata</th></tr>
+                            <tr><th>Funzionalità</th><th>Supportata</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Chat/Conversazione</td><td class="supported">Si</td></tr>
@@ -145,7 +145,7 @@
                 <div class="table-wrapper">
                     <table>
                         <thead>
-                            <tr><th>Funzionalita</th><th>Supportata</th></tr>
+                            <tr><th>Funzionalità</th><th>Supportata</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Chat/Conversazione</td><td class="supported">Si</td></tr>
@@ -171,7 +171,7 @@
                 <div class="table-wrapper">
                     <table>
                         <thead>
-                            <tr><th>Funzionalita</th><th>Supportata</th></tr>
+                            <tr><th>Funzionalità</th><th>Supportata</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Chat/Conversazione</td><td class="supported">Si</td></tr>
@@ -186,7 +186,7 @@
                     <li><code>BaseURL</code> - URL del server Ollama (default: <code>http://localhost:11434/api</code>)</li>
                     <li><code>Model</code> - Modello locale da utilizzare</li>
                     <li><code>SystemPrompt</code> - Prompt di sistema</li>
-                    <li><code>Raw</code> - Modalita raw per prompt personalizzati</li>
+                    <li><code>Raw</code> - Modalità raw per prompt personalizzati</li>
                 </ul>
             </section>
 
@@ -211,7 +211,7 @@ end;</code></pre>
             <!-- Risposte JSON Strutturate -->
             <section id="json-strutturate">
                 <h2>Risposte JSON Strutturate</h2>
-                <p>E possibile richiedere all'AI di restituire risposte in formato JSON seguendo una struttura specifica. Il supporto varia a seconda del provider.</p>
+                <p>È possibile richiedere all'AI di restituire risposte in formato JSON seguendo una struttura specifica. Il supporto varia a seconda del provider.</p>
 
                 <h3 id="openai-json">OpenAI - JSON Mode</h3>
                 <p>OpenAI supporta il <strong>JSON Mode</strong> che garantisce risposte JSON valide.</p>
@@ -254,11 +254,11 @@ end;</code></pre>
                     </table>
                 </div>
                 <div class="callout callout-info">
-                    <strong>Nota importante:</strong> Con <code>json_object</code>, OpenAI garantisce che la risposta sia JSON sintatticamente valido, ma devi specificare nel prompt la struttura desiderata. Il modello seguira le istruzioni del prompt per la struttura dei dati.
+                    <strong>Nota importante:</strong> Con <code>json_object</code>, OpenAI garantisce che la risposta sia JSON sintatticamente valido, ma devi specificare nel prompt la struttura desiderata. Il modello seguirà le istruzioni del prompt per la struttura dei dati.
                 </div>
 
                 <h3 id="gemini-json">Google Gemini - Structured Output con Schema</h3>
-                <p>Gemini offre un supporto piu avanzato con classi dedicate per definire uno schema JSON:</p>
+                <p>Gemini offre un supporto più avanzato con classi dedicate per definire uno schema JSON:</p>
                 <pre><code class="language-pascal">uses
   SmartCoreAI.Driver.Gemini.Models;
 
@@ -308,7 +308,7 @@ end;</code></pre>
                 <p><strong>Tipi supportati per i campi:</strong> <code>string</code>, <code>number</code>, <code>boolean</code>, <code>array</code>, <code>object</code></p>
 
                 <h3 id="claude-ollama-json">Claude e Ollama</h3>
-                <p>Questi driver non hanno supporto nativo per JSON strutturato nella libreria. La strategia consigliata e:</p>
+                <p>Questi driver non hanno supporto nativo per JSON strutturato nella libreria. La strategia consigliata è:</p>
                 <ol>
                     <li>Specificare chiaramente il formato JSON desiderato nel prompt</li>
                     <li>Parsare la risposta testuale</li>
@@ -377,7 +377,7 @@ end;</code></pre>
                             <tr><th>Metodo</th><th>Descrizione</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><code>Chat(APrompt, ACallback)</code></td><td>Singolo turno - ogni chiamata e indipendente, senza memoria</td></tr>
+                            <tr><td><code>Chat(APrompt, ACallback)</code></td><td>Singolo turno - ogni chiamata è indipendente, senza memoria</td></tr>
                             <tr><td><code>ChatEx(ARequest)</code></td><td>Multi-turn - passa un oggetto richiesta con lo storico completo dei messaggi</td></tr>
                         </tbody>
                     </table>
@@ -411,7 +411,7 @@ begin
     Request.Messages.Add(TAIChatMessage.Create(cmrUser,
       'E come aggiungo un costruttore?'));
 
-    // Esegui la richiesta - l'AI vedra tutto lo storico
+    // Esegui la richiesta - l'AI vedrà tutto lo storico
     Driver.ChatEx(Request);
   finally
     Request.Free;
@@ -447,7 +447,7 @@ begin
     Request.Model := 'claude-sonnet-4-latest';
     Request.MaxTokens := 1024;
 
-    // System prompt (proprieta separata in Claude, non un messaggio)
+    // System prompt (proprietà separata in Claude, non un messaggio)
     Request.System := 'Sei un assistente esperto di programmazione Delphi.';
 
     // Storico della conversazione
@@ -467,7 +467,7 @@ begin
   end;
 end;</code></pre>
                 <div class="callout callout-info">
-                    <strong>Nota:</strong> In Claude i ruoli sono stringhe: <code>'user'</code> e <code>'assistant'</code>. Il system prompt e una proprieta separata (<code>Request.System</code>), non un messaggio.
+                    <strong>Nota:</strong> In Claude i ruoli sono stringhe: <code>'user'</code> e <code>'assistant'</code>. Il system prompt è una proprietà separata (<code>Request.System</code>), non un messaggio.
                 </div>
 
                 <h3 id="conversation-manager">Pattern per Gestire una Conversazione</h3>
@@ -592,8 +592,8 @@ end;</code></pre>
 
                 <h3 id="considerazioni-storico">Considerazioni sullo Storico</h3>
                 <ul>
-                    <li><strong>Limite token:</strong> Ogni provider ha un limite massimo di token per richiesta. Se la conversazione diventa troppo lunga, dovrai rimuovere i messaggi piu vecchi.</li>
-                    <li><strong>Costi:</strong> Piu messaggi nello storico = piu token inviati = costi maggiori.</li>
+                    <li><strong>Limite token:</strong> Ogni provider ha un limite massimo di token per richiesta. Se la conversazione diventa troppo lunga, dovrai rimuovere i messaggi più vecchi.</li>
+                    <li><strong>Costi:</strong> Più messaggi nello storico = più token inviati = costi maggiori.</li>
                     <li><strong>Context window:</strong> GPT-4 supporta fino a 128K token, Claude fino a 200K, Gemini fino a 1M.</li>
                 </ul>
                 <pre><code class="language-pascal">// Esempio: mantieni solo gli ultimi N messaggi (oltre al system prompt)
@@ -608,7 +608,7 @@ begin
   else
     StartIndex := 0;
 
-  // Rimuovi i messaggi piu vecchi
+  // Rimuovi i messaggi più vecchi
   while FRequest.Messages.Count - StartIndex > MaxMessages do
     FRequest.Messages.Delete(StartIndex);
 end;</code></pre>
@@ -617,7 +617,7 @@ end;</code></pre>
             <!-- Embeddings -->
             <section id="embeddings">
                 <h2>Embeddings (Workaround)</h2>
-                <p>La libreria <strong>non include supporto nativo per il calcolo degli embeddings</strong>. Tuttavia, e possibile chiamare gli endpoint embeddings manualmente usando <code>TAIJSONRequest</code>.</p>
+                <p>La libreria <strong>non include supporto nativo per il calcolo degli embeddings</strong>. Tuttavia, è possibile chiamare gli endpoint embeddings manualmente usando <code>TAIJSONRequest</code>.</p>
 
                 <h3 id="cosa-sono-embeddings">Cosa sono gli Embeddings</h3>
                 <p>Gli embeddings sono rappresentazioni vettoriali di testo che catturano il significato semantico. Sono utili per:</p>
@@ -625,7 +625,7 @@ end;</code></pre>
                     <li>Ricerca semantica</li>
                     <li>Clustering di documenti</li>
                     <li>Sistemi di raccomandazione</li>
-                    <li>Rilevamento di similarita</li>
+                    <li>Rilevamento di similarità</li>
                 </ul>
 
                 <h3 id="supporto-embeddings">Supporto Embeddings per Provider</h3>
@@ -676,7 +676,7 @@ begin
   end;
 end;
 
-// Embedding batch (piu testi in una sola chiamata)
+// Embedding batch (più testi in una sola chiamata)
 procedure TForm1.GetEmbeddingsBatch(const ATexts: TArray&lt;string&gt;);
 var
   Params: TJSONObject;
@@ -724,7 +724,7 @@ begin
       for J := 0 to EmbeddingArray.Count - 1 do
         Vector[J] := EmbeddingArray.Items[J].AsType&lt;Double&gt;;
 
-      // Usa Vector (es. salva in database, calcola similarita, etc.)
+      // Usa Vector (es. salva in database, calcola similarità, etc.)
       // Vector contiene tipicamente 1536 dimensioni per text-embedding-3-small
     end;
   finally
@@ -756,8 +756,8 @@ begin
   end;
 end;</code></pre>
 
-                <h3 id="cosine-similarity">Calcolo della Similarita tra Vettori</h3>
-                <p>Una volta ottenuti gli embeddings, puoi calcolare la similarita coseno:</p>
+                <h3 id="cosine-similarity">Calcolo della Similarità tra Vettori</h3>
+                <p>Una volta ottenuti gli embeddings, puoi calcolare la similarità coseno:</p>
                 <pre><code class="language-pascal">function CosineSimilarity(const A, B: TArray&lt;Double&gt;): Double;
 var
   DotProduct, NormA, NormB: Double;
@@ -789,7 +789,7 @@ var
 begin
   Similarity := CosineSimilarity(Vector1, Vector2);
   // Similarity va da -1 (opposti) a 1 (identici)
-  // Valori > 0.8 indicano alta similarita semantica
+  // Valori > 0.8 indicano alta similarità semantica
 end;</code></pre>
             </section>
 
@@ -822,7 +822,7 @@ end;</code></pre>
                 <h3 id="taijsonrequest">TAIJSONRequest</h3>
                 <p>Componente per richieste JSON generiche verso endpoint personalizzati.</p>
                 <p><strong>Utilizzo:</strong> Chiamate a endpoint specifici del provider (moderazione, fine-tuning, gestione file, batch).</p>
-                <p><strong>Proprieta:</strong></p>
+                <p><strong>Proprietà:</strong></p>
                 <ul>
                     <li><code>Endpoint: string</code> - Endpoint relativo (es. <code>/moderations</code>, <code>/files</code>)</li>
                     <li><code>Params: string</code> - Body JSON della richiesta</li>
@@ -845,7 +845,7 @@ end;</code></pre>
                 <h3 id="taistreamrequest">TAIStreamRequest</h3>
                 <p>Componente per operazioni basate su stream (audio, video, documenti).</p>
                 <p><strong>Utilizzo:</strong> Upload di file e ricezione di risultati elaborati (trascrizione audio, comprensione video, TTS).</p>
-                <p><strong>Proprieta:</strong></p>
+                <p><strong>Proprietà:</strong></p>
                 <ul>
                     <li><code>Endpoint: string</code> - Endpoint relativo</li>
                     <li><code>InputFileName: string</code> - Percorso del file da inviare (deve esistere)</li>
@@ -865,10 +865,10 @@ end;</code></pre>
                 <h3 id="taiimagerequest">TAIImageRequest</h3>
                 <p>Componente per la generazione di immagini.</p>
                 <p><strong>Utilizzo:</strong> Creazione di immagini tramite AI (DALL-E, Gemini).</p>
-                <p><strong>Proprieta:</strong></p>
+                <p><strong>Proprietà:</strong></p>
                 <ul>
                     <li><code>APIRequestObject: IAIImageGenerationRequest</code> - Oggetto richiesta con parametri (prompt, dimensioni, etc.)</li>
-                    <li><code>DecodeMode: TAIImageDecodeMode</code> - Modalita decodifica (Auto, Base64, URL, None)</li>
+                    <li><code>DecodeMode: TAIImageDecodeMode</code> - Modalità decodifica (Auto, Base64, URL, None)</li>
                 </ul>
                 <p><strong>Metodo principale:</strong></p>
                 <ul>
@@ -890,7 +890,7 @@ end;</code></pre>
                 <div class="table-wrapper">
                     <table>
                         <thead>
-                            <tr><th>Metodo/Proprieta</th><th>Descrizione</th></tr>
+                            <tr><th>Metodo/Proprietà</th><th>Descrizione</th></tr>
                         </thead>
                         <tbody>
                             <tr><td><code>Driver: TAIDriver</code></td><td>Driver AI assegnato</td></tr>
@@ -905,7 +905,7 @@ end;</code></pre>
                 <div class="table-wrapper">
                     <table>
                         <thead>
-                            <tr><th>Metodo/Proprieta</th><th>Descrizione</th></tr>
+                            <tr><th>Metodo/Proprietà</th><th>Descrizione</th></tr>
                         </thead>
                         <tbody>
                             <tr><td><code>GetDriverName: string</code></td><td>Nome del driver (es. "OpenAI", "Claude")</td></tr>
@@ -956,7 +956,7 @@ end;</code></pre>
                             <tr><td><code>FindArray(JSONValue, Path): TJSONArray</code></td><td>Cerca ricorsivamente un array JSON</td></tr>
                             <tr><td><code>FindObject(JSONValue, Path): TJSONObject</code></td><td>Cerca ricorsivamente un oggetto JSON</td></tr>
                             <tr><td><code>SafeURLCompose(Base, Path): string</code></td><td>Compone URL evitando doppi slash</td></tr>
-                            <tr><td><code>IsSuccessfulResponse(Response): Boolean</code></td><td>Verifica se la risposta HTTP e un successo (2xx)</td></tr>
+                            <tr><td><code>IsSuccessfulResponse(Response): Boolean</code></td><td>Verifica se la risposta HTTP è un successo (2xx)</td></tr>
                             <tr><td><code>ExtractErrorMessage(JSON): string</code></td><td>Estrae il messaggio di errore da risposte provider</td></tr>
                         </tbody>
                     </table>
@@ -973,33 +973,33 @@ end;</code></pre>
                 <p><strong>Setup:</strong></p>
                 <pre><code class="language-pascal">ChatBindSource.SetChatRequest(MyChatRequest);</code></pre>
                 <p><strong>Comportamento:</strong> Quando arriva una risposta chat, viene aggiunto un <code>TChatResponseItem</code> alla lista interna. La lista viene esposta tramite <code>TListBindSourceAdapter</code> per il binding a ListView, Memo, etc.</p>
-                <p><strong>Proprieta bindabili:</strong> <code>Text</code> (testo della risposta)</p>
+                <p><strong>Proprietà bindabili:</strong> <code>Text</code> (testo della risposta)</p>
 
                 <h3 id="taijsonbindsource">TAIJSONBindSource</h3>
                 <p>Collega le risposte JSON a controlli LiveBindings.</p>
                 <p><strong>Setup:</strong></p>
                 <pre><code class="language-pascal">JSONBindSource.SetJSONRequest(MyJSONRequest);</code></pre>
                 <p><strong>Comportamento:</strong> Le risposte JSON vengono wrappate in <code>TJSONResponseItem</code> e aggiunte alla lista.</p>
-                <p><strong>Proprieta bindabili:</strong> <code>JSONText</code> (JSON serializzato come stringa)</p>
+                <p><strong>Proprietà bindabili:</strong> <code>JSONText</code> (JSON serializzato come stringa)</p>
 
                 <h3 id="taistreambindsource">TAIStreamBindSource</h3>
                 <p>Collega i risultati stream a controlli LiveBindings.</p>
                 <p><strong>Setup:</strong></p>
                 <pre><code class="language-pascal">StreamBindSource.SetStreamRequest(MyStreamRequest);</code></pre>
                 <p><strong>Comportamento:</strong> Lo stream risultante viene convertito in testo e wrappato in <code>TStreamResponseItem</code>.</p>
-                <p><strong>Proprieta bindabili:</strong> <code>Text</code> (contenuto dello stream come testo)</p>
+                <p><strong>Proprietà bindabili:</strong> <code>Text</code> (contenuto dello stream come testo)</p>
 
                 <h3 id="taiimagebindsource">TAIImageBindSource (solo FireMonkey)</h3>
                 <p>Collega i risultati di generazione immagini a controlli FMX.</p>
                 <p><strong>Setup:</strong></p>
                 <pre><code class="language-pascal">ImageBindSource.SetResults(ImagesArray);</code></pre>
-                <p><strong>Proprieta:</strong></p>
+                <p><strong>Proprietà:</strong></p>
                 <ul>
                     <li><code>AutoDownloadFromURL: Boolean</code> - Se True, scarica automaticamente immagini da URL</li>
                     <li><code>OnDownloadStream: TDownloadStreamEvent</code> - Hook personalizzato per download</li>
                 </ul>
                 <p><strong>Comportamento:</strong> I risultati <code>IAIImageGenerationResult</code> vengono convertiti in <code>TImageResponseItemFMX</code> contenenti un <code>TBitmap</code> FMX.</p>
-                <p><strong>Proprieta bindabili:</strong> <code>Bitmap</code> (TBitmap FMX), <code>MimeType</code>, <code>ImageURL</code></p>
+                <p><strong>Proprietà bindabili:</strong> <code>Bitmap</code> (TBitmap FMX), <code>MimeType</code>, <code>ImageURL</code></p>
             </section>
 
             <!-- Gerarchia delle Eccezioni -->
@@ -1015,7 +1015,7 @@ end;</code></pre>
 |   |   +-- EAIRateLimitException - Errori 429 (rate limiting)
 |   +-- EAITimeoutException - Timeout di connessione/lettura
 +-- EAIRegisterException    - Errori di registrazione driver</code></pre>
-                <p><strong>Metodo utile:</strong> <code>EAIException.ReraiseOrWrap(E, Context)</code> - Rilancia se gia un'eccezione AI, altrimenti la wrappa aggiungendo contesto.</p>
+                <p><strong>Metodo utile:</strong> <code>EAIException.ReraiseOrWrap(E, Context)</code> - Rilancia se già un'eccezione AI, altrimenti la wrappa aggiungendo contesto.</p>
             </section>
         </article>
 
