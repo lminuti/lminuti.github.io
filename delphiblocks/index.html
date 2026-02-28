@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DelphiBlocks</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --r: 32vmin;
+      --item: 32vmin;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f2f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #0d0d1a;
+      }
+    }
+
+    .scene {
+      position: relative;
+      width: calc(var(--r) * 2 + var(--item) + 20px);
+      height: calc(var(--r) * 2 + var(--item) + 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .track {
+      position: absolute;
+      inset: calc(var(--item) / 2 + 10px);
+      border-radius: 50%;
+      border: 1.5px dashed rgba(0, 0, 0, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .track {
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+    }
+
+    .center {
+      position: relative;
+      width: 0;
+      height: 0;
+    }
+
+    .item {
+      position: absolute;
+      width: var(--item);
+      height: var(--item);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: calc(var(--item) * 0.2);
+      background: #ffffff;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+      padding: calc(var(--item) * 0.1);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .item {
+        background: #1e1e30;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+    }
+
+    .item:hover {
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .item:hover {
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Pause while hovering any item */
+    .item:hover {
+      animation-play-state: paused !important;
+    }
+
+    .item-1 { animation: orbit-0   22s linear infinite; }
+    .item-2 { animation: orbit-120 22s linear infinite; }
+    .item-3 { animation: orbit-240 22s linear infinite; }
+
+    /*
+      Each keyframe:
+        1. rotate(θ)          — spin around orbit center
+        2. translateX(R)      — move outward along that direction
+        3. rotate(-θ)         — counter-rotate so image stays upright
+        4. translate(-50%,-50%) — center the element on its orbit point
+    */
+    @keyframes orbit-0 {
+      from { transform: rotate(0deg)   translateX(var(--r)) rotate(0deg)    translate(-50%, -50%); }
+      to   { transform: rotate(360deg) translateX(var(--r)) rotate(-360deg) translate(-50%, -50%); }
+    }
+    @keyframes orbit-120 {
+      from { transform: rotate(120deg) translateX(var(--r)) rotate(-120deg) translate(-50%, -50%); }
+      to   { transform: rotate(480deg) translateX(var(--r)) rotate(-480deg) translate(-50%, -50%); }
+    }
+    @keyframes orbit-240 {
+      from { transform: rotate(240deg) translateX(var(--r)) rotate(-240deg) translate(-50%, -50%); }
+      to   { transform: rotate(600deg) translateX(var(--r)) rotate(-600deg) translate(-50%, -50%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="track"></div>
+    <div class="center">
+      <a href="https://wirl.delphiblocks.dev/" class="item item-1">
+        <img src="wirl-logo.png" alt="Wirl">
+      </a>
+      <a href="https://github.com/paolo-rossi/delphi-neon" class="item item-2">
+        <img src="neon-log.png" alt="Neon">
+      </a>
+      <a href="https://github.com/delphi-blocks/MCPConnect" class="item item-3">
+        <img src="mcp-logo.png" alt="MCP Connect">
+      </a>
+    </div>
+  </div>
+</body>
+</html>
